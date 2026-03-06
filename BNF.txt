@@ -1,0 +1,30 @@
+<program> => <statement_list>
+
+<statement_list> => <statement>
+                  | <statement> <statement_list>
+
+<statement> => <expression> ";"
+             | <comment>
+
+<expression> => <literal>
+              | <identifier>
+
+<literal> => <boolean>
+
+<boolean> => "true" | "false"
+
+<identifier> => <letter> (<letter> | <digit> | "_")*
+
+<letter> => [a-zA-Z]
+
+<digit> => [0-9]
+
+<comment> => "#" <text> <newline>
+
+<text> => <character>*
+
+<character> => <letter> | <digit> | <symbol>
+
+<symbol> => " " | "!" | "#" | "$"
+
+<newline> => "\n"
