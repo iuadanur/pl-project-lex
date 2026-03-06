@@ -28,6 +28,14 @@ NEWLINE     \n|\r|\r\n
 "true"          { printf("BOOLEAN_TRUE "); }
 "false"         { printf("BOOLEAN_FALSE "); }
 
+"=="            { printf("EQUAL "); }
+"!="            { printf("NOT_EQUAL "); }
+"<="            { printf("LESS_EQUAL "); }
+">="            { printf("GREATER_EQUAL "); }
+"<"             { printf("LESS_THAN "); }
+">"             { printf("GREATER_THAN "); }
+"="             { printf("ASSIGN "); }
+
 "+"             { printf("PLUS "); }
 "-"             { printf("MINUS "); }
 "*"             { printf("MULTIPLY "); }
