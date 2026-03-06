@@ -13,7 +13,7 @@ ID          {LETTER}({LETTER}|{DIGIT}|_)*
 INT         {DIGIT}+
 FLOAT       {DIGIT}+\.{DIGIT}+
 STRING      \"[^\"]*\"
-CHAR        \'[^\'\n]\'
+CHAR        \'[^\'\\n]\'
 WHITESPACE  [ \t]+
 NEWLINE     \n|\r|\r\n
 
@@ -25,26 +25,41 @@ NEWLINE     \n|\r|\r\n
 
 "#".*{NEWLINE}  { line_num++; printf("COMMENT "); }
 
+"var"           { printf("VAR_KEYWORD "); }
+"const"         { printf("CONST_KEYWORD "); }
+"fn"            { printf("FN_KEYWORD "); }
+"if"            { printf("IF_KEYWORD "); }
+"elif"          { printf("ELIF_KEYWORD "); }
+"else"          { printf("ELSE_KEYWORD "); }
+"while"         { printf("WHILE_KEYWORD "); }
+"return"        { printf("RETURN_KEYWORD "); }
+"print"         { printf("PRINT_KEYWORD "); }
+"scan"          { printf("SCAN_KEYWORD "); }
+
+"int"           { printf("TYPE_INT "); }
+"float"         { printf("TYPE_FLOAT "); }
+"bool"          { printf("TYPE_BOOL "); }
+"string"        { printf("TYPE_STRING "); }
+"char"          { printf("TYPE_CHAR "); }
+
 "true"          { printf("BOOLEAN_TRUE "); }
 "false"         { printf("BOOLEAN_FALSE "); }
-
-"=="            { printf("EQUAL "); }
-"!="            { printf("NOT_EQUAL "); }
-"<="            { printf("LESS_EQUAL "); }
-">="            { printf("GREATER_EQUAL "); }
-"<"             { printf("LESS_THAN "); }
-">"             { printf("GREATER_THAN "); }
-"="             { printf("ASSIGN "); }
-
-"&&"            { printf("AND_OP "); }
-"||"            { printf("OR_OP "); }
-"!"             { printf("NOT_OP "); }
 
 "+"             { printf("PLUS "); }
 "-"             { printf("MINUS "); }
 "*"             { printf("MULTIPLY "); }
 "/"             { printf("DIVIDE "); }
 "%"             { printf("MODULO "); }
+"="             { printf("ASSIGN "); }
+"=="            { printf("EQUAL "); }
+"!="            { printf("NOT_EQUAL "); }
+"<"             { printf("LESS_THAN "); }
+"<="            { printf("LESS_EQUAL "); }
+">"             { printf("GREATER_THAN "); }
+">="            { printf("GREATER_EQUAL "); }
+"&&"            { printf("AND_OP "); }
+"||"            { printf("OR_OP "); }
+"!"             { printf("NOT_OP "); }
 
 "("             { printf("L_PAREN "); }
 ")"             { printf("R_PAREN "); }
@@ -52,9 +67,9 @@ NEWLINE     \n|\r|\r\n
 "}"             { printf("R_BRACE "); }
 "["             { printf("L_BRACKET "); }
 "]"             { printf("R_BRACKET "); }
-","             { printf("COMMA "); }
-":"             { printf("COLON "); }
 ";"             { printf("SEMICOLON "); }
+":"             { printf("COLON "); }
+","             { printf("COMMA "); }
 
 {ID}            { printf("IDENTIFIER(%s) ", yytext); }
 {INT}           { printf("INTEGER(%s) ", yytext); }
