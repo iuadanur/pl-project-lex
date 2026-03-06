@@ -28,6 +28,12 @@ NEWLINE     \n|\r|\r\n
 "true"          { printf("BOOLEAN_TRUE "); }
 "false"         { printf("BOOLEAN_FALSE "); }
 
+"+"             { printf("PLUS "); }
+"-"             { printf("MINUS "); }
+"*"             { printf("MULTIPLY "); }
+"/"             { printf("DIVIDE "); }
+"%"             { printf("MODULO "); }
+
 ";"             { printf("SEMICOLON "); }
 
 {ID}            { printf("IDENTIFIER(%s) ", yytext); }
