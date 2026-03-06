@@ -10,6 +10,10 @@ int line_num = 1;
 DIGIT       [0-9]
 LETTER      [a-zA-Z]
 ID          {LETTER}({LETTER}|{DIGIT}|_)*
+INT         {DIGIT}+
+FLOAT       {DIGIT}+\.{DIGIT}+
+STRING      \"[^\"]*\"
+CHAR        \'[^\'\n]\'
 WHITESPACE  [ \t]+
 NEWLINE     \n|\r|\r\n
 
@@ -27,6 +31,10 @@ NEWLINE     \n|\r|\r\n
 ";"             { printf("SEMICOLON "); }
 
 {ID}            { printf("IDENTIFIER(%s) ", yytext); }
+{INT}           { printf("INTEGER(%s) ", yytext); }
+{FLOAT}         { printf("FLOAT(%s) ", yytext); }
+{STRING}        { printf("STRING(%s) ", yytext); }
+{CHAR}          { printf("CHAR(%s) ", yytext); }
 
 .               { printf("ERROR: Unrecognized character %s at line %d ", yytext, line_num); }
 
