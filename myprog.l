@@ -36,12 +36,24 @@ NEWLINE     \n|\r|\r\n
 ">"             { printf("GREATER_THAN "); }
 "="             { printf("ASSIGN "); }
 
+"&&"            { printf("AND_OP "); }
+"||"            { printf("OR_OP "); }
+"!"             { printf("NOT_OP "); }
+
 "+"             { printf("PLUS "); }
 "-"             { printf("MINUS "); }
 "*"             { printf("MULTIPLY "); }
 "/"             { printf("DIVIDE "); }
 "%"             { printf("MODULO "); }
 
+"("             { printf("L_PAREN "); }
+")"             { printf("R_PAREN "); }
+"{"             { printf("L_BRACE "); }
+"}"             { printf("R_BRACE "); }
+"["             { printf("L_BRACKET "); }
+"]"             { printf("R_BRACKET "); }
+","             { printf("COMMA "); }
+":"             { printf("COLON "); }
 ";"             { printf("SEMICOLON "); }
 
 {ID}            { printf("IDENTIFIER(%s) ", yytext); }
