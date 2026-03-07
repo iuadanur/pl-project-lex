@@ -1,3 +1,43 @@
-true;
-false;
-dsad;
+# minimal example for lexer
+var int x = 3;
+var int y = 2;
+var float pi = 3.14;
+var bool ok = true;
+var string msg = "hi";
+var char grade = 'A';
+
+# arithmetic
+var int sum = x + y;
+var int rem = x % y;
+var float div = pi / 2.0;
+
+# comparison and logic
+var bool inRange = (x >= 1) && (x <= 10);
+var bool eq = (x == y) || (x != y);
+
+# if/elif/else
+if ok {
+    x = x + 1;
+} elif x == 3 {
+    x = x + 2;
+} else {
+    x = 0;
+}
+
+# while loop
+while x < 6 {
+    x = x + 1;
+}
+
+# functions
+fn add(int a, int b) : int {
+    return a + b;
+}
+
+var int z = add(x, y);
+
+# io
+print(msg);
+print(x);
+print(z);
+scan(inputVal);
